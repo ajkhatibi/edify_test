@@ -16,10 +16,6 @@ export const actionToApiPost = () => async (dispatch: Dispatch) => {
     }
 }
 
-export const addToFavoriteList = (item: payload) => async (dispatch: Dispatch) => {
-    dispatch({ type: appTypes.TRIGGER_ADD_TO_FAVORITE_LIST, payload: item });
-}
-
-export const checkedAndUncheckedItems = (id: number) => async (dispatch: Dispatch) => {
-    dispatch({ type: appTypes.CHECKING_AND_UNCHECKING_ITEMS, payload: id });
+export const dispatchToReducer = (type: string, value: payload | number) => async (dispatch: Dispatch) => {
+    dispatch({ type, payload: value });
 }

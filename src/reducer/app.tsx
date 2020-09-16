@@ -30,8 +30,10 @@ export default (state = INITIAL_STATE, action: Action) => {
         case appTypes.CALL_PUBLIC_API_POST:
             return { ...state, data: action.payload.slice(0, 10) };
         case appTypes.TRIGGER_ADD_TO_FAVORITE_LIST:
+            const isThisValueIncluded = state.favoriteList.some((e: payload) => e.id === action.payload.id);
+            const removeDuplicate = [...state.favoriteList, action.payload].filter((item: payload) => item.id !== action.payload.id);
             return {
-                ...state, favoriteList: [...state.favoriteList, action.payload]
+                ...state, favoriteList: isThisValueIncluded ? [...removeDuplicate] : [...state.favoriteList, action.payload]
             }
         case appTypes.CHECKING_AND_UNCHECKING_ITEMS:
             const key = state.checkedItems.hasOwnProperty(`item${action.payload}`);

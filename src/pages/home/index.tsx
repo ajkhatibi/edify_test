@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionToApiPost, addToFavoriteList, checkedAndUncheckedItems } from '../../action';
+import { actionToApiPost, dispatchToReducer } from '../../action';
 import { STORE } from '../../reducer';
 import { useHistory } from "react-router-dom";
 import { payload } from '../../reducer/app';
+import { appTypes } from '../../types/app';
 
 export default function Home() {
     const history = useHistory();
@@ -21,11 +22,9 @@ export default function Home() {
         history.push("/favorite");
     }
     const clickedOnRadioButton = (value: payload) => {
-        dispatch(checkedAndUncheckedItems(value.id));
-        dispatch(addToFavoriteList(value));
+        dispatch(dispatchToReducer(appTypes.CHECKING_AND_UNCHECKING_ITEMS, value.id));
+        dispatch(dispatchToReducer(appTypes.TRIGGER_ADD_TO_FAVORITE_LIST, value));
     }
-
-    console.log(state);
     return (
         <div>
             <div>
