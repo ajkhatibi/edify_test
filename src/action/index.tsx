@@ -1,7 +1,6 @@
 import { Dispatch } from 'redux';
 import axios from 'axios';
 import { appTypes } from '../types/app';
-import app from '../reducer/app';
 
 const apiInstance = axios.create({
     baseURL: "https://jsonplaceholder.typicode.com"

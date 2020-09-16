@@ -1,6 +1,6 @@
 import { appTypes } from '../types/app';
 
-interface payload {
+export interface payload {
     userId: number;
     id: number;
     title: string;
