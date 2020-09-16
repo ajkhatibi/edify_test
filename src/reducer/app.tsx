@@ -19,7 +19,8 @@ const INITIAL_STATE: State = {
 export default (state = INITIAL_STATE, action: Action) => {
     switch (action.type) {
         case appTypes.CALL_PUBLIC_API_POST:
-            return { ...state, data: action.payload };
+            console.log("data: ", action.payload.slice(0, 10));
+            return { ...state, data: action.payload.slice(0, 10) };
         default:
             return state;
     }
