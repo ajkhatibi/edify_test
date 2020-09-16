@@ -6,7 +6,7 @@ interface Props {
     body: string;
 }
 
-export default function Favorite() {
+export default function Detail() {
     const { title, body } = useParams<Props>();
     return (
         <div>
